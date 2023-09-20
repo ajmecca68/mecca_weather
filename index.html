@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>MECCA WEATHER DASHBOARD</h1>
+    </div>
+    <div class="container">
+        <div class="search-container">
+
+            <input type="text" id="cityInput" placeholder="Enter city">
+            <div id="searchArrow" class="search-arrow">&#8594;</div>
+            <!--<button id="searchButton" class="search-button">-->
+        </div>
+        <div class="weather-container">
+            <div id="currentWeather" class="weather-card no-border">
+                <h2>Current Weather in City</h2>
+                <img id="weatherImage" src="assets/images/cloudy.png" alt="Weather Image">
+                <p>Temperature: 0°C</p>
+                <p>Weather: Sunny</p>
+            </div>
+            <div id="forecast" class="weather-card no-border"></div>
+            <canvas id="weatherChart" width="400" height="100"></canvas>
+        </div>
+    </div>
+    <div class="previous-searches">
+        <h3>Previously Searched Cities</h3>
+        <div id="searchButtons" class="search-buttons"></div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

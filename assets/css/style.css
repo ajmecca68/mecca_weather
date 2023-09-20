@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.weather-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.previous-searches {
+    position: fixed;
+    top: 180px; 
+    left: 0;
+    width: 20%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+    background-color: #f2f2f2; /* Optional background color */
+    border-right: 1px solid #ccc; /* Optional border */
+    overflow: auto; /* Enable scrolling if content exceeds the height */
+}
+
+.weather-card {
+    border-bottom: 2px solid darkred;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.weather-card.no-border {
+    border-bottom: none;
+}
+
+.weather-card img {
+    text-align: left;
+}
+
+#weatherImage {
+    max-width: 100px; /* Adjust image size */
+    display: block;
+    margin-right: 10px; /* Center the image */
+    float: left;
+}
+
+.searchList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.searchList li {
+    margin: 5px 0;
+}
+
+.search-button {
+    margin: 3px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    width: 230px;
+    border-radius: 4px;
+}
+
+input[type=text] {
+    width: 100%;
+    font-size: larger;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid darkred;
+}
+
+.search-container {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Added to position the arrow */
+}
+
+.search-arrow {
+    position: absolute; /* Position the arrow inside the input */
+    top: 50%;
+    right: 10px; /* Adjust the distance from the right edge */
+    transform: translateY(-50%);
+    font-size: 24px; /* Adjust the size of the arrow */
+    cursor: pointer;
+}
+
+.forecast-card {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 20px;
+    width: 150px;
+    display: inline-block;
+    vertical-align: top;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  #weatherChart {
+    height: 100px;
+    width: auto;
+  }
+
