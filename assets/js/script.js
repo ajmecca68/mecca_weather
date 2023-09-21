@@ -107,33 +107,41 @@ function fetchFiveDayForecast(city) {
 }
 
 function displayFiveDayForecast(data) {
-    const forecastCards = data.list
-        .filter((_, index) => index % 8 === 0)
-        .map((forecastData, index) => {
-            const date = new Date(forecastData.dt * 1000);
-            const temperature = Math.ceil(celsiusToFahrenheit(forecastData.main.temp));
-            const weatherConditionCode = forecastData.weather[0].id;
-            let bgImage = '';
+    // Skip the first element to start the forecast from tomorrow
+    const filteredData = data.list.filter((_, index) => index % 8 === 0).slice(1, 7);
 
-            if (weatherConditionCode < 600) {
-                bgImage = 'assets/images/rainy.png';
-            } else if (weatherConditionCode < 700) {
-                bgImage = 'assets/images/snowy.png';
-            } else if (weatherConditionCode === 800) {
-                bgImage = 'assets/images/sunny.png';
-            } else {
-                bgImage = 'assets/images/cloudy.png';
-            }
+    const forecastCards = filteredData.map((forecastData, index) => {
+        const date = new Date(forecastData.dt * 1000);
+        const temperature = Math.ceil(celsiusToFahrenheit(forecastData.main.temp));
+        const weatherConditionCode = forecastData.weather[0].id;
+        let bgImage = '';
+        console.log(weatherConditionCode)
+        if (weatherConditionCode < 600) {
+            bgImage = 'assets/images/raingif.gif';
+        } else if (weatherConditionCode < 700) {
+            bgImage = 'assets/images/snowgif.gif';
+        } else if (weatherConditionCode === 800) {
+            bgImage = 'assets/images/clearsunnygif.gif';
+        } else if (weatherConditionCode === 801) {
+            bgImage = 'assets/images/cleargif.gif';
+        } else if (weatherConditionCode === 802) {
+            bgImage = 'assets/images/scatteredcloudsgif.gif';
+        } else if (weatherConditionCode === 804) {
+            bgImage = 'assets/images/overcastcloudsgif.gif';
+        } else {
+            bgImage = 'assets/images/cloudygif.gif';
+        }
 
-            return `
-                <div class="forecast-card" style="background-image: url('${bgImage}'); background-size: cover; opacity: 0.7;">
-                    <h3>Day ${index + 1} (${date.toDateString()})</h3>
-                    <p>Temperature: ${temperature}°F</p>
-                    <p>Weather: ${forecastData.weather[0].description}</p>
-                </div>
-            `;
-        })
-        .join("");
+        return `
+            <div class="forecast-card" style="background-image: url('${bgImage}'); background-size: cover; opacity: 0.9;">
+                <h3>Day ${index + 2} 
+                <h5>${date.toDateString()}</h5>
+                <p>Temperature: ${temperature}°F</p>
+                <p>Weather: ${forecastData.weather[0].description}</p>
+            </div>
+        `;
+    })
+    .join("");
 
     // Data processing for chart
     const temperatureData = [];
