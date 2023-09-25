@@ -16,10 +16,12 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
+    width: 100%;
 }
 
 .weather-container {
-    width: 80%;
+    width: 75%;
+    margin-left: 20%;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -29,7 +31,7 @@ body {
 
 .previous-searches {
     position: fixed;
-    top: 180px; 
+    /* top: 180px;  */
     left: 0;
     width: 20%;
     height: 100%; 
@@ -78,7 +80,7 @@ body {
     padding: 5px 10px;
     border: 1px solid #ccc;
     cursor: pointer;
-    width: 230px;
+    width: 250px;
     border-radius: 4px;
 }
 
@@ -86,7 +88,7 @@ input[type=text] {
     width: 100%;
     font-size: larger;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 5px 0;
     box-sizing: border-box;
     border: none;
     outline: none;
@@ -94,18 +96,20 @@ input[type=text] {
 }
 
 .search-container {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative; /* Added to position the arrow */
+    position: fixed;
+    top: 100px; /* This is roughly the height of the header + some spacing */
+    left: 0px;
+    width: 21%;
+    max-height: calc(100% - 70px); /* Adjusting for header height */
+    overflow-y: auto; /* Make it scrollable if content is too much */
+    z-index: 10; /* Ensuring it's above the main content */
+    background-color: white; /* To ensure the content behind doesn't show through */
 }
 
 .search-arrow {
     position: absolute; /* Position the arrow inside the input */
     top: 50%;
-    right: 10px; /* Adjust the distance from the right edge */
+    right: 10px; /* */
     transform: translateY(-50%);
     font-size: 24px; /* Adjust the size of the arrow */
     cursor: pointer;
@@ -113,9 +117,10 @@ input[type=text] {
 
 .forecast-card {
     border: 1px solid #ccc;
-    margin: 10px;
+    /* margin: 10px; */
     padding: 20px;
     width: 150px;
+    height: 175px;
     display: inline-block;
     vertical-align: top;
     background-size: cover;
@@ -123,6 +128,11 @@ input[type=text] {
     background-repeat: no-repeat;
     background-color: rgba(255, 255, 255, 0.7);
   }
+
+.forecast-card {
+    margin-right: 20px;
+}
+
 .forecats-card h3 {
     margin-top: 0;
 }
@@ -131,9 +141,25 @@ input[type=text] {
     margin-bottom: 0;
 }
 
-
-  #weatherChart {
+#weatherChart {
     height: 100px;
     width: auto;
+}
+#currentWeather img {
+    max-height: 100px;
+    width: 200px;
+    /* border-radius: 50%; */
+}
+
+#currentWeather {
+    padding-left: 20px;
+}
+
+.todaysForecast p {
+    margin: 5px 0;
+  }
+  
+.todaysForecast {
+    margin: 0;
   }
 
