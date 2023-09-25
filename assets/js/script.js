@@ -8,6 +8,7 @@ const today = new Date(); // Get today's date
 const formattedDate = today.toLocaleDateString();
 // let myChart = null;
 
+
 // Function to convert Celsius to Fahrenheit
 function celsiusToFahrenheit(celsius) {
     return (celsius * 9/5) + 32;
